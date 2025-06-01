@@ -1,0 +1,38 @@
+{
+  "name": "calculator",
+  "version": "1.0.0",
+  "description": "A simple calculator built with Electron",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pilot2254/calculator.git"
+  },
+  "keywords": ["electron", "calculator", "desktop"],
+  "author": "pilot2254",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^28.1.0",
+    "electron-builder": "^24.9.1"
+  },
+  "build": {
+    "appId": "com.pilot2254.calculator",
+    "productName": "Calculator",
+    "directories": {
+      "output": "dist"
+    },
+    "mac": {
+      "category": "public.app-category.utilities"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  }
+}

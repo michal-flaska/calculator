@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+    "Helvetica Neue", sans-serif;
+  user-select: none;
+}
+
+body {
+  background-color: #f8f9fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.calculator {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  width: 280px;
+  overflow: hidden;
+}
+
+.display {
+  background-color: #343a40;
+  color: white;
+  text-align: right;
+  padding: 20px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.previous-operand {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1.2rem;
+  min-height: 24px;
+}
+
+.current-operand {
+  font-size: 2.5rem;
+  font-weight: 300;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background-color: #e9ecef;
+}
+
+button {
+  border: none;
+  outline: none;
+  background-color: white;
+  font-size: 1.25rem;
+  padding: 20px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #f1f3f5;
+}
+
+button:active {
+  background-color: #e9ecef;
+}
+
+.special {
+  color: #fa5252;
+}
+
+.operator {
+  color: #4c6ef5;
+}
+
+.equals {
+  background-color: #4c6ef5;
+  color: white;
+}
+
+.equals:hover {
+  background-color: #3b5bdb;
+}
+
+.equals:active {
+  background-color: #364fc7;
+}
+
+.zero {
+  grid-column: span 1;
+}
+
+/* Add a subtle animation for button presses */
+@keyframes buttonPress {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+button:active {
+  animation: buttonPress 0.1s ease;
+}
