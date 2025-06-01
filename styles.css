@@ -1,104 +1,219 @@
+/**
+ * Calculator styles using CSS custom properties for theming
+ * Configured to work with TailwindCSS-like utility classes
+ */
+
+/* CSS Custom Properties (CSS Variables) for theming */
+:root {
+  /* Default theme colors */
+  --color-background: #f8f9fa;
+  --color-calculator-bg: #ffffff;
+  --color-display-bg: #343a40;
+  --color-display-text: #ffffff;
+  --color-display-secondary: rgba(255, 255, 255, 0.75);
+  --color-button-bg: #ffffff;
+  --color-button-hover: #f1f3f5;
+  --color-button-active: #e9ecef;
+  --color-button-text: #212529;
+  --color-special-button: #fa5252;
+  --color-operator-button: #4c6ef5;
+  --color-equals-button: #4c6ef5;
+  --color-equals-button-hover: #3b5bdb;
+  --color-border: #e9ecef;
+  --color-shadow: rgba(0, 0, 0, 0.1);
+
+  /* Fonts */
+  --font-primary: "Geist Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "Geist Mono", "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, monospace;
+
+  /* Border radius */
+  --border-radius: 12px;
+  --button-border-radius: 8px;
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.2s ease;
+  --transition-slow: 0.3s ease;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Reset and base styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
-    "Helvetica Neue", sans-serif;
-  user-select: none;
 }
 
 body {
-  background-color: #f8f9fa;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  font-family: var(--font-primary);
+  background-color: var(--color-background);
+  color: var(--color-button-text);
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-app-region: no-drag;
+  overflow: hidden;
   height: 100vh;
-  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+/* App container */
+.app {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+/* Calculator container */
 .calculator {
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  width: 280px;
+  background-color: var(--color-calculator-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-xl);
+  width: 100%;
+  max-width: 320px;
   overflow: hidden;
+  border: 1px solid var(--color-border);
+  transition: box-shadow var(--transition-normal);
 }
 
+.calculator:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+}
+
+/* Display area */
 .display {
-  background-color: #343a40;
-  color: white;
+  background-color: var(--color-display-bg);
+  color: var(--color-display-text);
   text-align: right;
-  padding: 20px;
-  height: 120px;
+  padding: 1.5rem 1.25rem;
+  min-height: 120px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   word-wrap: break-word;
   word-break: break-all;
+  position: relative;
+  overflow: hidden;
+}
+
+.display.error {
+  background-color: #dc3545;
+  animation: shake 0.5s ease-in-out;
 }
 
 .previous-operand {
-  color: rgba(255, 255, 255, 0.75);
-  font-size: 1.2rem;
-  min-height: 24px;
+  color: var(--color-display-secondary);
+  font-size: 1rem;
+  font-weight: 400;
+  min-height: 1.5rem;
+  font-family: var(--font-mono);
+  opacity: 0.8;
+  transition: opacity var(--transition-fast);
 }
 
 .current-operand {
-  font-size: 2.5rem;
+  font-size: 2.25rem;
   font-weight: 300;
+  font-family: var(--font-mono);
+  line-height: 1.1;
+  margin-top: 0.5rem;
+  transition: font-size var(--transition-fast);
 }
 
+/* Responsive font sizing */
+@media (max-width: 320px) {
+  .current-operand {
+    font-size: 1.875rem;
+  }
+}
+
+/* Buttons grid */
 .buttons {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1px;
-  background-color: #e9ecef;
+  background-color: var(--color-border);
+  padding: 1px;
 }
 
-button {
+/* Base button styles */
+.btn {
   border: none;
   outline: none;
-  background-color: white;
-  font-size: 1.25rem;
-  padding: 20px;
+  background-color: var(--color-button-bg);
+  color: var(--color-button-text);
+  font-size: 1.125rem;
+  font-weight: 500;
+  font-family: var(--font-primary);
+  padding: 1.25rem 1rem;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: all var(--transition-fast);
+  border-radius: 0;
+  position: relative;
+  overflow: hidden;
 }
 
-button:hover {
-  background-color: #f1f3f5;
+.btn:hover {
+  background-color: var(--color-button-hover);
+  transform: translateY(-1px);
 }
 
-button:active {
-  background-color: #e9ecef;
+.btn:active {
+  background-color: var(--color-button-active);
+  transform: translateY(0);
 }
 
-.special {
-  color: #fa5252;
+.btn:focus {
+  outline: 2px solid var(--color-operator-button);
+  outline-offset: -2px;
 }
 
-.operator {
-  color: #4c6ef5;
+/* Button type styles */
+.btn-special {
+  color: var(--color-special-button);
+  font-weight: 600;
 }
 
-.equals {
-  background-color: #4c6ef5;
+.btn-operator {
+  color: var(--color-operator-button);
+  font-weight: 600;
+}
+
+.btn-equals {
+  background-color: var(--color-equals-button);
   color: white;
+  font-weight: 600;
 }
 
-.equals:hover {
-  background-color: #3b5bdb;
+.btn-equals:hover {
+  background-color: var(--color-equals-button-hover);
 }
 
-.equals:active {
-  background-color: #364fc7;
+.btn-number {
+  font-family: var(--font-mono);
 }
 
-.zero {
-  grid-column: span 1;
+/* Special button layouts */
+.zero-btn {
+  grid-column: span 2;
 }
 
-/* Add a subtle animation for button presses */
+/* Keyboard active state */
+.keyboard-active {
+  background-color: var(--color-button-active) !important;
+  transform: scale(0.95);
+}
+
+/* Button press animation */
 @keyframes buttonPress {
   0% {
     transform: scale(1);
@@ -111,6 +226,117 @@ button:active {
   }
 }
 
-button:active {
+.btn:active {
   animation: buttonPress 0.1s ease;
+}
+
+/* Error shake animation */
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-2px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(2px);
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .calculator {
+    border: 2px solid var(--color-button-text);
+  }
+
+  .btn {
+    border: 1px solid var(--color-border);
+  }
+}
+
+/* Dark mode media query fallback */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #1a1a1a;
+    --color-calculator-bg: #2d2d2d;
+    --color-display-bg: #1a1a1a;
+    --color-button-bg: #404040;
+    --color-button-hover: #4a4a4a;
+    --color-button-active: #353535;
+    --color-button-text: #ffffff;
+    --color-border: #404040;
+    --color-shadow: rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Print styles */
+@media print {
+  .calculator {
+    box-shadow: none;
+    border: 1px solid #000;
+  }
+}
+
+/* Focus styles for better accessibility */
+.btn:focus-visible {
+  outline: 2px solid var(--color-operator-button);
+  outline-offset: 2px;
+}
+
+/* Loading state (for future use) */
+.calculator.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Responsive design */
+@media (max-height: 500px) {
+  .display {
+    padding: 1rem;
+    min-height: 80px;
+  }
+
+  .current-operand {
+    font-size: 1.875rem;
+  }
+
+  .btn {
+    padding: 1rem 0.75rem;
+    font-size: 1rem;
+  }
+}
+
+/* Custom scrollbar for future use */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-button-hover);
 }

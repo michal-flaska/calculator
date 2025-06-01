@@ -1,18 +1,23 @@
 {
   "name": "calculator",
   "version": "1.0.0",
-  "description": "A simple calculator built with Electron",
-  "main": "main.js",
+  "description": "A highly configurable calculator built with Electron",
+  "main": "src/main.js",
   "type": "module",
   "scripts": {
     "start": "electron .",
-    "build": "electron-builder"
+    "dev": "NODE_ENV=development electron .",
+    "build": "electron-builder",
+    "build:all": "electron-builder --mac --win --linux",
+    "clean": "rm -rf dist/ out/",
+    "lint": "echo 'Add ESLint here if needed'",
+    "test": "echo 'Add tests here if needed'"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pilot2254/calculator.git"
   },
-  "keywords": ["electron", "calculator", "desktop"],
+  "keywords": ["electron", "calculator", "desktop", "configurable"],
   "author": "pilot2254",
   "license": "MIT",
   "devDependencies": {
@@ -23,16 +28,21 @@
     "appId": "com.pilot2254.calculator",
     "productName": "Calculator",
     "directories": {
-      "output": "dist"
+      "output": "dist",
+      "buildResources": "assets"
     },
+    "files": ["src/**/*", "config/**/*", "index.html", "styles.css"],
     "mac": {
-      "category": "public.app-category.utilities"
+      "category": "public.app-category.utilities",
+      "icon": "assets/icon.icns"
     },
     "win": {
-      "target": "nsis"
+      "target": "nsis",
+      "icon": "assets/icon.ico"
     },
     "linux": {
-      "target": "AppImage"
+      "target": "AppImage",
+      "icon": "assets/icon.png"
     }
   }
 }
