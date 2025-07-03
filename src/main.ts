@@ -1,5 +1,4 @@
 import { app, BrowserWindow } from "electron";
-import { fileURLToPath } from "url";
 import { APP_CONFIG } from "../config/app.config.js";
 import { createLogger } from "./utils/logger.js";
 
