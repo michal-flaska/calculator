@@ -1,10 +1,7 @@
 import { app, BrowserWindow } from "electron";
-import path from "path";
 import { fileURLToPath } from "url";
 import { APP_CONFIG } from "../config/app.config.js";
 import { createLogger } from "./utils/logger.js";
-
-const __filename = fileURLToPath(import.meta.url);
 
 const logger = createLogger("main");
 
