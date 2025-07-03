@@ -5,7 +5,6 @@ import { APP_CONFIG } from "../config/app.config.js";
 import { createLogger } from "./utils/logger.js";
 
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 const logger = createLogger("main");
 
@@ -79,14 +78,14 @@ app.on("before-quit", () => {
   logger.info("App quitting...");
 });
 
-app.on("web-contents-created", (event, contents) => {
-  contents.on("new-window", (event, navigationUrl) => {
-    event.preventDefault();
-    logger.warn("Blocked new window creation to:", navigationUrl);
+app.on("web-contents-created", (_, contents) => {
+  contents.setWindowOpenHandler(({ url }) => {
+    logger.warn("Blocked new window creation to:", url);
+    return { action: "deny" };
   });
 });
 
-app.on("certificate-error", (event, webContents, url, error, certificate, callback) => {
+app.on("certificate-error", (event, _, __, error, ___, callback) => {
   event.preventDefault();
   callback(false);
   logger.error("Certificate error:", error);

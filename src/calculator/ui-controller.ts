@@ -3,7 +3,7 @@ import { THEMES, DEFAULT_THEME } from "../../config/theme.config.js";
 import { APP_CONFIG } from "../../config/app.config.js";
 import { createLogger } from "../utils/logger.js";
 import CalculatorEngine from "./calculator-engine.js";
-import type { ButtonConfig, KeyboardMapping, Theme } from "../types/index.js";
+import type { ButtonConfig, KeyboardMapping } from "../types/index.js";
 
 const logger = createLogger("ui-controller");
 
