@@ -2,7 +2,7 @@
   "name": "calculator",
   "version": "1.0.0",
   "description": "A highly configurable calculator built with Electron",
-  "main": "src/main.js",
+  "main": "build/main.js",
   "type": "module",
   "scripts": {
     "start": "electron .",
@@ -33,7 +33,7 @@
       "output": "dist",
       "buildResources": "assets"
     },
-    "files": ["build/**/*", "config/**/*", "index.html", "styles.css"],
+    "files": ["build/**/*", "index.html", "styles.css"],
     "mac": {
       "category": "public.app-category.utilities"
     },
