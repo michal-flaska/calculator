@@ -11,15 +11,18 @@ document.addEventListener("DOMContentLoaded", () => {
     logger.info("Calculator initialized successfully");
   } catch (error) {
     logger.error("Failed to initialize calculator:", error);
+    console.error("Calculator initialization failed:", error);
   }
 });
 
 window.addEventListener("error", (event) => {
   logger.error("Unhandled error:", event.error);
+  console.error("Unhandled error:", event.error);
 });
 
 window.addEventListener("unhandledrejection", (event) => {
   logger.error("Unhandled promise rejection:", event.reason);
+  console.error("Unhandled promise rejection:", event.reason);
 });
 
 logger.info("Renderer script loaded");
