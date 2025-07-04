@@ -5,6 +5,7 @@
     "moduleResolution": "node",
     "lib": ["ES2022", "DOM"],
     "outDir": "./build",
+    "rootDir": "./src",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
@@ -22,6 +23,6 @@
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true
   },
-  "include": ["src/**/*", "config/**/*"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules", "dist", "build", "out"]
 }

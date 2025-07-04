@@ -1,4 +1,4 @@
-import { APP_CONFIG } from "../../config/app.config.js";
+import { APP_CONFIG } from "../config/app.config.js";
 import { createLogger } from "../utils/logger.js";
 import type { Operation, DisplayState } from "../types/index.js";
 

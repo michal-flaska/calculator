@@ -1,4 +1,4 @@
-import type { ButtonConfig, KeyboardMapping } from '../src/types/index.js';
+import type { ButtonConfig, KeyboardMapping } from '../types/index.js';
 
 export const BUTTON_LAYOUT: ButtonConfig[][] = [
   [

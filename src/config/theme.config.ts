@@ -1,4 +1,4 @@
-import type { Theme } from '../src/types/index.js';
+import type { Theme } from '../types/index.js';
 
 export const THEMES: Record<string, Theme> = {
   default: {

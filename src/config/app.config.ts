@@ -1,4 +1,4 @@
-import type { AppConfig } from '../src/types/index.js';
+import type { AppConfig } from '../types/index.js';
 
 export const APP_CONFIG: AppConfig = {
   window: {

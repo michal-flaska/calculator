@@ -1,5 +1,5 @@
 import { app, BrowserWindow } from "electron";
-import { APP_CONFIG } from "../config/app.config.js";
+import { APP_CONFIG } from "./config/app.config.js";
 import { createLogger } from "./utils/logger.js";
 
 const logger = createLogger("main");

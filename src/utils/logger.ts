@@ -1,4 +1,4 @@
-import { APP_CONFIG } from "../../config/app.config.js";
+import { APP_CONFIG } from "../config/app.config.js";
 import type { LogLevel } from "../types/index.js";
 
 const LOG_LEVELS: Record<LogLevel, number> = {
