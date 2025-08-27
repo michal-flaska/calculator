@@ -8,9 +8,7 @@ A highly configurable, maintainable calculator built with Electron, with a heavy
 - Percentage calculation
 - Clear and delete functionality
 - Keyboard support
-- Clean, modern UI
 - **Highly Configurable**: Easy-to-modify configuration files for themes, buttons, and app behavior
-- **Modern Design**: Clean UI with Geist Sans and Geist Mono fonts
 - **Multiple Themes**: Default, Dark, and Minimal themes with easy theme switching
 - **Responsive**: Adapts to different screen sizes
 - **Accessible**: WCAG compliant with proper focus management
