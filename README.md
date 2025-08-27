@@ -1,8 +1,8 @@
 # Calculator
 
-A highly configurable, maintainable calculator built with Electron, featuring modern design with Geist fonts and TailwindCSS-inspired styling.
+A highly configurable, maintainable calculator built with Electron, with a heavy config options.
 
-## ✨ Features
+## Features
 
 - Basic arithmetic operations (addition, subtraction, multiplication, division)
 - Percentage calculation
@@ -18,30 +18,12 @@ A highly configurable, maintainable calculator built with Electron, featuring mo
 - **Error Handling**: Comprehensive error handling and logging
 - **Cross-Platform**: Works on Windows, macOS, and Linux
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
 - [Node.js](https://nodejs.org/) (v16 or higher)
 - npm (comes with Node.js)
-
-### Installation
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/pilot2254/calculator.git
-   cd calculator
-   ```
-
-2. **Install dependencies:**
-   ```bash
-   npm install
-   ```
-
-3. **Start the application:**
-   ```bash
-   npm start
-   ```
 
 ### Development
 
@@ -50,7 +32,7 @@ Run in development mode with additional logging:
 npm run dev
 ```
 
-## 🎨 Configuration
+## Configuration
 
 ### Themes
 
@@ -95,7 +77,7 @@ export const APP_CONFIG = {
 }
 ```
 
-## ⌨️ Keyboard Shortcuts
+## Keyboard Shortcuts
 
 | Key | Action |
 |-----|--------|
@@ -110,25 +92,7 @@ export const APP_CONFIG = {
 | \`Cmd/Ctrl+D\` | Toggle theme |
 | \`Cmd/Ctrl+Q\` | Quit |
 
-## 🏗️ Architecture
-
-```
-src/
-├── main.js                   # Main Electron process
-├── renderer.js               # Renderer entry point
-├── calculator/
-│   ├── calculator-engine.js  # Core calculation logic
-│   └── ui-controller.js      # UI management
-└── utils/
-    └── logger.js             # Logging utility
-
-config/
-├── app.config.js             # Main app configuration
-├── theme.config.js           # Theme definitions
-└── buttons.config.js         # Button layout & keyboard mappings
-```
-
-## 🔧 Building for Distribution
+## Building for Distribution
 
 To build the application for your platform:
 
@@ -141,33 +105,6 @@ Build for all platforms:
 npm run build:all
 ```
 
-## 🎯 Future Enhancements
-
-The modular architecture makes it easy to add:
-
-- [ ] Scientific calculator mode
-- [ ] Calculation history
-- [ ] Memory functions (MC, MR, M+, M-)
-- [ ] Unit conversions
-- [ ] Custom themes editor
-- [ ] Plugin system
-- [ ] Cloud sync
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch: \`git checkout -b feature/amazing-feature\`
-3. Commit your changes: \`git commit -m 'Add amazing feature'\`
-4. Push to the branch: \`git push origin feature/amazing-feature\`
-5. Open a Pull Request
-
-## 📝 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- [Electron](https://www.electronjs.org/) - Framework for building cross-platform desktop apps
-- [Geist Font](https://vercel.com/font) - Beautiful typography by Vercel
-- [TailwindCSS](https://tailwindcss.com/) - Inspiration for utility-first styling approach
-- [Geist Font](https://vercel.com/font) - Beautiful typography by Vercel
