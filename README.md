@@ -34,7 +34,7 @@ npm run dev
 
 ### Themes
 
-Edit \`config/theme.config.js\` to modify existing themes or add new ones:
+Edit `config/theme.config.js` to modify existing themes or add new ones:
 
 ```javascript
 export const THEMES = {
@@ -50,7 +50,7 @@ export const THEMES = {
 
 ### Button Layout
 
-Modify \`config/buttons.config.js\` to change button layout or add new functions:
+Modify `config/buttons.config.js` to change button layout or add new functions:
 
 ```javascript
 export const BUTTON_LAYOUT = [
@@ -63,7 +63,7 @@ export const BUTTON_LAYOUT = [
 
 ### App Settings
 
-Adjust \`config/app.config.js\` for window size, features, and behavior:
+Adjust `config/app.config.js` for window size, features, and behavior:
 
 ```javascript
 export const APP_CONFIG = {
@@ -77,18 +77,18 @@ export const APP_CONFIG = {
 
 ## Keyboard Shortcuts
 
-| Key | Action |
-|-----|--------|
-| \`0-9\` | Number input |
-| \`.\` | Decimal point |
-| \`+\`, \`-\`, \`*\`, \`/\` | Operations |
-| \`Enter\` or \`=\` | Calculate |
-| \`Backspace\` | Delete last digit |
-| \`Escape\` or \`Delete\` | Clear |
-| \`%\` | Percentage |
-| \`Cmd/Ctrl+T\` | Toggle always on top |
-| \`Cmd/Ctrl+D\` | Toggle theme |
-| \`Cmd/Ctrl+Q\` | Quit |
+| Key                  | Action               |
+|----------------------|----------------------|
+| `0-9`                | Number input         |
+| `.`                  | Decimal point        |
+| `+`, `-`, `*`, `/`   | Operations           |
+| `Enter` or `=`       | Calculate            |
+| `Backspace`          | Delete last digit    |
+| `Escape` or `Delete` | Clear                |
+| `%`                  | Percentage           |
+| `Cmd/Ctrl+T`         | Toggle always on top |
+| `Cmd/Ctrl+D`         | Toggle theme         |
+| `Cmd/Ctrl+Q`         | Quit                 |
 
 ## Building for Distribution
 
